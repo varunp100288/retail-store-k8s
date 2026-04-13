@@ -1,0 +1,8 @@
+replicaCount: 1
+
+image:
+  repository: varunp100288/catalog
+  tag: latest
+
+service:
+  port: 8080
