@@ -4,7 +4,7 @@ metadata:
   name: orders
   namespace: retail
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: orders
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: orders
-          image: varunp100288/orders:latest   # 👈 apna docker image name check kar lena
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"   # 👈 apna docker image name check kar lena
           ports:
             - containerPort: 8080
           env:

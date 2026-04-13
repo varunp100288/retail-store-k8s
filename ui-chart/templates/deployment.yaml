@@ -4,7 +4,7 @@ metadata:
   name: ui
   namespace: retail
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: ui
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ui
-          image: varunp100288/ui:latest   # 👈 apna image check kar lena
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"   # 👈 apna image check kar lena
           ports:
             - containerPort: 8080
           env:
